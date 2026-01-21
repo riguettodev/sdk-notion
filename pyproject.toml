@@ -19,3 +19,4 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/riguettodev/sdk-notion"
+Repository = "https://git.kralot.cloud/Kralot/sdk-notion"

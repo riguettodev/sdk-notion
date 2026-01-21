@@ -8,3 +8,7 @@
 .vscode
 # Temp Folder
 .temp/
+# Packaging
+*.egg-info/
+dist/
+build/
