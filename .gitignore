@@ -1,0 +1,10 @@
+# Python Cache Files
+**/__pycache__/
+# Python Virtual Environment
+.venv
+# Environment Settings
+.env
+# VSCode Settings
+.vscode
+# Temp Folder
+.temp/
