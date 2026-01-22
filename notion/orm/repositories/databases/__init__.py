@@ -7,8 +7,8 @@ from .SearchPageProperty import SearchPageProperty as _SearchPageProperty
 
 TDB = TypeVar('TDB', bound = _NotionDatabase)
 
-class Database(Generic[TDB]):
-
+class DatabaseClient(Generic[TDB]):
+    
     def __init__(self,
         database_id : str,
         generic_response : bool = False
@@ -45,13 +45,13 @@ class Database(Generic[TDB]):
         )
 
     @staticmethod
-    def generic(database_id : str) -> 'Database[_NotionDatabase]':
+    def generic(database_id : str) -> 'DatabaseClient[_NotionDatabase]':
         
         "Acessa database sem schema definido"
         
-        return Database(
+        return DatabaseClient(
             database_id = database_id,
             generic_response = True
         )
 
-__all__ = ["Database"]
+__all__ = ["DatabaseClient"]

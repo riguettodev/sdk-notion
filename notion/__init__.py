@@ -2,7 +2,8 @@ from typing import Type, TypeVar, Generic, Union, Literal
 from .auth import headers as _headers
 from .schemas.orm.database.DatabasesContainer import DatabasesContainer as _DatabasesContainer
 from .orm.repositories import _Repositories
-from .client import Client as _Client
+from .orm.config       import ORMConfig
+from .client           import Client as _Client
 
 TContainer = TypeVar('TContainer', bound = _DatabasesContainer)
 
@@ -33,6 +34,7 @@ class Notion(Generic[TContainer]):
         _Client.configure(headers)
         self.client = _Client.get_instance()
 
+        ORMConfig.configure(timezone = timezone)
         self.orm = _ORM(databases_container = orm_container)
 
         self.DatabasesContainer = _DatabasesContainer

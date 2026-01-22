@@ -1,5 +1,6 @@
 from typing   import Dict, Any, Optional, Callable, ClassVar, TypeVar, Type
-from pydantic import BaseModel, field_validator
+from pydantic import field_validator
+from ...schemas.dto import BaseModelSdk
 
 T = TypeVar('T', bound='NotionDatabase')
 
@@ -42,7 +43,7 @@ class NotionConfigMeta:
         
         self.transformers.update(transformers_config)
 
-class NotionDatabaseMeta(type(BaseModel)):
+class NotionDatabaseMeta(type(BaseModelSdk)):
 
     "Metaclass que processa a classe e injeta funcionalidades do Notion"
     
@@ -81,7 +82,7 @@ class NotionDatabaseMeta(type(BaseModel)):
         
         return cls
 
-class NotionDatabase(BaseModel, metaclass = NotionDatabaseMeta):
+class NotionDatabase(BaseModelSdk, metaclass = NotionDatabaseMeta):
 
     """
     Classe base para schemas de databases do Notion.
@@ -164,7 +165,7 @@ class NotionDatabase(BaseModel, metaclass = NotionDatabaseMeta):
         return cls(**result)
     
     @classmethod
-    def get_database_id(cls) -> str:
+    def id(cls) -> str:
 
         "Retorna o nome da database no Notion"
 
@@ -174,7 +175,7 @@ class NotionDatabase(BaseModel, metaclass = NotionDatabaseMeta):
         return cls.__name__
     
     @classmethod
-    def get_notion_field_name(cls,
+    def field_name(cls,
         python_field : str
     ) -> Optional[str]:
 
@@ -186,7 +187,7 @@ class NotionDatabase(BaseModel, metaclass = NotionDatabaseMeta):
         return None
     
     @classmethod
-    def get_all_mappings(cls) -> Dict[str, str]:
+    def mappings(cls) -> Dict[str, str]:
 
         "Retorna todos os mappings field_python -> field_notion"
 

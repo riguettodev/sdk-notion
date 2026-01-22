@@ -2,6 +2,9 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+packages = ["notion"]
+
 [project]
 name = "sdk-notion"
 version = "0.1.0"
@@ -19,4 +22,4 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/riguettodev/sdk-notion"
-Repository = "https://git.kralot.cloud/Kralot/sdk-notion"
+Repository = "https://github.com/riguettodev/sdk-notion"

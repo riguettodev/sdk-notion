@@ -1,6 +1,7 @@
 from typing   import Dict, Any, Union, Optional, Literal, List, TYPE_CHECKING
 from datetime import datetime, date
 from pydantic import validate_call
+from ..config import ORMConfig
 
 if TYPE_CHECKING:
     from ..repositories.pages.CreatePage import CreatePage
@@ -43,8 +44,9 @@ class SetProperty:
     def start_date(self,
         name  : str,
         value : Optional[Union[date, datetime]],
-        timezone : str = "Etc/UTC"
+        timezone : Optional[str] = None
     ):
+        timezone = timezone if timezone is not None else ORMConfig.get_timezone()
         if value is None:
             return self._CreatePage
         if type(value) == date:

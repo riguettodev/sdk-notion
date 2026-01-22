@@ -17,9 +17,19 @@ class DatabaseRegistry:
 
         "Registra uma database no registry"
 
-        db_name = database_class.get_database_id()
+        db_name = database_class.id()
         cls._databases[db_name] = database_class
-    
+
+    @classmethod
+    def auto_register(cls,
+        *database_classes : Type[_NotionDatabase]
+    ) -> None:
+        
+        "Registra múltiplas databases de uma vez"
+        
+        for db_class in database_classes:
+            cls.register(db_class)
+
     @classmethod
     def get(cls,
         database_id : str
@@ -62,16 +72,6 @@ class DatabaseRegistry:
 
         return list(cls._databases.keys())
     
-    @classmethod
-    def auto_register(cls,
-        *database_classes : Type[_NotionDatabase]
-    ) -> None:
-        
-        "Registra múltiplas databases de uma vez"
-        
-        for db_class in database_classes:
-            cls.register(db_class)
-
     @classmethod
     def generate_literal_type(cls) -> str:
         

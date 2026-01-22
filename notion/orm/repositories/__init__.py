@@ -12,8 +12,8 @@ class DatabasesRepo(Generic[TContainer]):
     
     @staticmethod
     def generic(database_id : str):
-        from .databases import Database
-        return Database.generic(database_id)
+        from .databases import DatabaseClient
+        return DatabaseClient.generic(database_id)
 
 class _Repositories(Generic[TContainer]):
 
