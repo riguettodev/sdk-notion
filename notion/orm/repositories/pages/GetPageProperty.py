@@ -56,8 +56,10 @@ class GetPageProperty:
             result = _PageProperties.parse(
                 page = prop_data[0]
             )
+        
+        else:
 
-        result = prop_data[0]
+            result = prop_data[0]
 
         return result
     
