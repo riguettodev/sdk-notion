@@ -1,9 +1,7 @@
-from .Page   import Page   as _Page
-from .Parent import Parent as _Parent
+from .Page import Page as _Page
 
 class Schemas:
 
-    Page   = _Page
-    Parent = _Parent
+    Page = _Page
 
 __all__ = ["Schemas"]

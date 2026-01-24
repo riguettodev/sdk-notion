@@ -1,9 +1,9 @@
-from .....schemas.dto import BaseModelSdk
+from ....schemas.dto import BaseModelSdk
 from pydantic import ConfigDict
 from typing   import Dict, Any, Optional
 
 class RichText(BaseModelSdk):
-    model_config = ConfigDict(title="Notion_Responses_Pages_Properties_RichText")
+    model_config = ConfigDict(title="Notion_Responses_Properties_RichText")
     type: str
     text: 'Text'
     annotations: 'Annotations'

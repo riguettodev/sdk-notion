@@ -4,7 +4,7 @@ from typing   import Optional, Any, Dict, Generic, TypeVar, Union
 from datetime import datetime
 from ....orm.mapping.database import NotionDatabase as _NotionDatabase
 from ..users.User import User as _User
-from .Parent import Parent as _Parent
+from ..misc.Parent import Parent as _Parent
 
 TDB = TypeVar('TDB', bound = _NotionDatabase)
 
